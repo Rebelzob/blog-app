@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   end
 
   private
-  
+
   def update_post_counter
     user.update(posts_counter: user.posts.count)
   end
