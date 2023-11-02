@@ -1,1 +1,14 @@
-<h1> All users... <h1>
+<div class="container px-5 py-24 mx-auto">
+  <h1 class="text-3xl text-center p-3 font-bold text-gray-200"> All Users </h1>
+  <div class="flex flex-col flex-wrap gap-3">
+    <% @users.each do |user| %>
+      <a class=" w-full border-2 bg-gray-800 hover:bg-gray-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105" href="/users/<%= user.id %>">
+        <h2 class="text-2xl p-3 font-bold text-gray-200"><%= user.name %></h2>
+          <div class="flex justify-between p-3">
+            <%= image_tag(user.photo, alt: "User photo", class: "photo-container w-48 h-56 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out") %>
+            <span class="flex self-end text-gray-400">Number of posts: <%= user.posts_counter %></span>
+          </div>
+      </a>
+      <% end %>
+  </div>
+</div>
