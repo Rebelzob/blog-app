@@ -4,9 +4,12 @@
       <img src="<%= @user.photo %>" alt="User Photo" class="object-cover">
     </div>
     <div class="info-container border-2 w-2/4 p-7 rounded-lg">
-      <h2 class="text-2xl font-bold"><%= @user.name%></h2>
+      <a class="text-2xl font-bold text-blue-400 hover:text-blue-500" href="/users/<%=@user.id%>"><%= @user.name%></a>
       <p class="text-gray-600 text-right">Number of Posts: <%= @user.posts_counter%></p>
     </div>
+  </div>
+  <div>
+    <a href="/users/<%=@user.id%>/posts/new" class="btn btn-block bg-gray-900 border-gray-200 border-2 hover:bg-blue-900">Create Post</a>
   </div>
   <div class="mt-8">
   <% @posts.each do |post|%>
