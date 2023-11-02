@@ -70,3 +70,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+gem 'faker', '~> 3.2', '>= 3.2.1'
+gem 'foreman', '~> 0.87.2'
+gem 'tailwindcss-rails', '~> 2.0'
