@@ -4,7 +4,7 @@
     <p class="text-gray-300"><%=@posts.text%></p>
   </div>
   <ul>
-    <% @posts.comments.first(10).each do |comment| %>
+    <% @posts.comments.includes(:user).order(created_at: :desc).each do |comment| %>
     <li class="bg-gray-700 p-4 rounded-lg mb-4">
       <p class="text-gray-300">Username: <%= comment.user.name %>, <%= comment.text %></p>
     </li>
