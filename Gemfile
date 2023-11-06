@@ -94,4 +94,5 @@ gem 'faker', '~> 3.2', '>= 3.2.1'
 gem 'foreman', '~> 0.87.2'
 
 # Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces.
+
 gem 'tailwindcss-rails', '~> 2.0'
