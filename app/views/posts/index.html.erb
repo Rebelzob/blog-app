@@ -12,7 +12,7 @@
     <a href="/users/<%=@user.id%>/posts/new" class="btn btn-block bg-gray-900 border-gray-200 border-2 hover:bg-blue-900">Create Post</a>
   </div>
   <div class="mt-8">
-  <% @posts.each do |post|%>
+  <% @posts.order(created_at: :desc).each do |post|%>
     <div class="border-2 p-4 mb-4 rounded-lg">
       <a class="text-lg font-bold mb-2 text-blue-400 hover:text-blue-500" href="/users/<%= @user.id %>/posts/<%=post.id%>">Post #'<%=post.id%></a>
       <p class="text-gray-400 leading-relaxed">
