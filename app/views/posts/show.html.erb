@@ -1,8 +1,18 @@
 <div class="container bg-gray-800 text-white">
+  <div class="flex">
+    <a href="/users/<%=@user.id%>/posts" class="btn btn-outline btn-error">Return</a>
+  </div>
   <div class="container flex-col justify-between items-center p-8">
     <h3 class="text-lg font-bold mb-4">Post #'<%=@posts.id %></h3>
+    <p class="text-gray-600 text-right">Likes: <%= @posts.likes_counter%></p>
     <p class="text-gray-300"><%=@posts.text%></p>
+    <div class="flex justify-end">
+      <%= form_with model: @like, url: user_post_likes_path(@user, @posts) do |form| %>
+      <%= form.submit "Like", class: "btn btn-outline btn-success"%>
+      <% end %>
+    </div>
   </div>
+  <a href="/users/<%=@user.id%>/posts/<%=@posts.id%>/comments/new" class="btn btn-block bg-gray-900 border-gray-200 border-2 hover:bg-blue-900">Create Comment</a>
   <ul>
     <% @posts.comments.includes(:user).order(created_at: :desc).each do |comment| %>
     <li class="bg-gray-700 p-4 rounded-lg mb-4">
