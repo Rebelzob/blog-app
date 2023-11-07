@@ -1,9 +1,10 @@
 <div class="container bg-gray-800 text-white">
   <div class="flex">
-    <a href="/users/<%=@user.id%>/posts" class="btn btn-outline btn-error">Return</a>
+    <%= link_to "Back to User profile", user_path(@user), class: "btn btn-outline btn-error" %>
+    <%= link_to "Back to Post index", user_posts_path(@user), class: "btn btn-outline btn-error" %>
   </div>
   <div class="container flex-col justify-between items-center p-8">
-    <h3 class="text-lg font-bold mb-4">Post #'<%=@posts.id %></h3>
+    <h3 id="post-<%=@posts.id%>" class="text-lg font-bold mb-4">Post #'<%=@posts.id %></h3>
     <p class="text-gray-600 text-right">Likes: <%= @posts.likes_counter%></p>
     <p class="text-gray-300"><%=@posts.text%></p>
     <div class="flex justify-end">
@@ -12,8 +13,8 @@
       <% end %>
     </div>
   </div>
-  <a href="/users/<%=@user.id%>/posts/<%=@posts.id%>/comments/new" class="btn btn-block bg-gray-900 border-gray-200 border-2 hover:bg-blue-900">Create Comment</a>
-  <ul>
+  <%= link_to "Create Comment", new_user_post_comment_path(@user, @posts), class: "btn btn-block bg-gray-900 border-gray-200 border-2 hover:bg-blue-900" %>
+  <ul class="comments-container">
     <% @posts.comments.includes(:user).order(created_at: :desc).each do |comment| %>
     <li class="bg-gray-700 p-4 rounded-lg mb-4">
       <p class="text-gray-300">Username: <%= comment.user.name %>, <%= comment.text %></p>
