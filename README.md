@@ -11,6 +11,7 @@
 - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
+    - [Run tests](#run-tests)
 - [👥 Authors ](#-authors-)
     - [Author:](#author)
 - [🔭 Future Features](#future-features)
@@ -37,6 +38,7 @@ fully functional website that show the list of posts and empower readers to inte
     <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
     <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+    <li><a href="https://tailwindcss.com/docs/guides/ruby-on-rails">Tailwind CSS</a></li>
   </ul>
 </details>
 
@@ -83,6 +85,23 @@ In the project directory, run/ Ruby each query in the following order:
   Rails server
 ```
 
+### Run tests
+
+To run tests, run the following commands:
+
+
+Spec tests:
+
+```sh
+  bin/rspec
+```
+
+Rails tests:
+
+```sh
+  bin/rails test:system
+```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -96,6 +115,10 @@ In the project directory, run/ Ruby each query in the following order:
 
 - GitHub: [@Karim Barragan](https://github.com/Rebelzob)
 - LinkedIn: [@Karim Barragan](https://www.linkedin.com/in/karim-barragan/)
+
+👤 **Benson Kiai**
+
+- GitHub: [@Benson](https://github.com/BenMKT)
 
 <!-- FUTURE FEATURES -->
 

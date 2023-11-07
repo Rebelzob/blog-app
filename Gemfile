@@ -1,76 +1,98 @@
+# This file lists all the Ruby gems that are required for the application to run.
+# It includes gems for the Rails framework, as well as other gems for development, testing, and production.
+
 source 'https://rubygems.org'
 
+# RuboCop is a Ruby static code analyzer and formatter.
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+# Ruby version required for the application.
 ruby '3.2.2'
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+# Rails is a web application framework written in Ruby.
 gem 'rails', '~> 7.1.1'
 
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+# Sprockets is a Ruby library for compiling and serving web assets.
 gem 'sprockets-rails'
 
-# Use postgresql as the database for Active Record
+# PostgreSQL is a powerful, open source object-relational database system.
 gem 'pg', '~> 1.1'
 
-# Use the Puma web server [https://github.com/puma/puma]
+# Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications.
 gem 'puma', '>= 5.0'
 
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+# Importmap is a JavaScript module loader for Rails.
 gem 'importmap-rails'
 
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+# Turbo is a set of libraries for building high-speed web applications in Rails.
 gem 'turbo-rails'
 
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+# Stimulus is a JavaScript framework for building web applications.
 gem 'stimulus-rails'
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+# Jbuilder is a JSON API builder for Rails.
 gem 'jbuilder'
 
-# Use Redis adapter to run Action Cable in production
+# Redis is an in-memory data structure store.
 # gem "redis", ">= 4.0.1"
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+# Kredis is a Redis-backed data store for Ruby.
 # gem "kredis"
 
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# bcrypt is a password hashing function.
 # gem "bcrypt", "~> 3.1.7"
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# tzinfo-data is a Ruby gem that provides access to TZInfo's time zone data.
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
-# Reduces boot times through caching; required in config/boot.rb
+# Bootsnap is a library that plugs into Ruby and optimizes the boot time of Rails applications.
 gem 'bootsnap', require: false
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# Image processing library for Rails.
 # gem "image_processing", "~> 1.2"
 
+# Development and test group gems.
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  # Debugging tool for Ruby.
   gem 'debug', platforms: %i[mri windows]
+
+  # Rails controller testing library.
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
+
+  # RSpec is a testing framework for Ruby.
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+
+  # Shoulda Matchers is a testing framework for Rails.
   gem 'shoulda-matchers', '~> 5.3'
 end
 
+# Development group gems.
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
+  # Web console for Rails.
   gem 'web-console'
 
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
+  # Rack Mini Profiler is a middleware that displays speed badges for every action in your Rails app.
   # gem "rack-mini-profiler"
 
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
+  # Spring is a Rails application preloader.
   # gem "spring"
 end
 
+# Test group gems.
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  # Capybara is an integration testing tool for web applications.
   gem 'capybara'
+
+  # Selenium WebDriver is a browser automation tool.
   gem 'selenium-webdriver'
 end
 
+# Faker is a library for generating fake data.
 gem 'faker', '~> 3.2', '>= 3.2.1'
+
+# Foreman is a process manager for Procfile-based applications.
 gem 'foreman', '~> 0.87.2'
+
+# Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces.
+
 gem 'tailwindcss-rails', '~> 2.0'
