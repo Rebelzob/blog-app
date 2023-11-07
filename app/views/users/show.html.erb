@@ -1,36 +1,39 @@
 <div class="container mx-auto px-4">
   <div class="flex justify-between items-center py-8">
-    <div class="photo-container w-48 h-48 rounded-full overflow-hidden">
-      <img src="<%= @user.photo %>" alt="User Photo" class="object-cover">
-    </div>
-    <div class="info-container border-2 w-2/4 p-7 rounded-lg">
-      <h2 class="text-2xl font-bold"><%= @user.name%></h2>
-      <p class="text-gray-600 text-right">Number of Posts: <%= @user.posts_counter %></p>
-    </div>
-  </div>
-  <div class="mt-8">
-    <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-      <h3 class="text-lg font-bold mb-2">Bio</h3>
-      <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-        <%= @user.bio %>
-      </p>
-    </div>
-  </div>
-  <div>
-    <h3 class="m-4 text-xl font-bold">Posts</h3>
-    <div class="flex flex-col gap-3">
-      <% @user.three_last_posts.each do |post| %>
-      <div class="border-2 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-        <a class="text-lg font-bold mb-2 text-blue-400 hover:text-blue-500" href="/users/<%= @user.id %>/posts/<%=post.id%>"><%=post.title%></a>
-        <p class="text-gray-700 dark:text-gray-300"><%= post.text %></p>
+    <div class="container mx-auto px-4">
+      <%= link_to "Back to Users", users_path, class: "btn btn-outline btn-error" %>
+      <div class="flex justify-between items-center py-8">
+        <div class="photo-container w-48 h-48 rounded-full overflow-hidden">
+          <img src="<%= @user.photo %>" alt="User Photo" class="object-cover">
+        </div>
+        <div class="info-container border-2 w-2/4 p-7 rounded-lg">
+          <h2 class="text-2xl font-bold"><%= @user.name%></h2>
+          <p class="text-gray-600 text-right">Number of Posts: <%= @user.posts_counter %></p>
+        </div>
       </div>
-      <% end %>
+      <div class="mt-8">
+        <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
+          <h3 class="text-lg font-bold mb-2">Bio</h3>
+          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+            <%= @user.bio %>
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3 class="m-4 text-xl font-bold">Posts</h3>
+        <div class="flex flex-col gap-3">
+          <% @user.three_last_posts.each do |post| %>
+          <div id="post-<%=post.id%>" class="border-2 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
+            <a class="text-lg font-bold mb-2 text-blue-400 hover:text-blue-500" href="/users/<%= @user.id %>/posts/<%=post.id%>"><%=post.title%></a>
+            <p class="text-gray-700 dark:text-gray-300"><%= post.text %></p>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="text-center py-4">
+        <%= link_to "/users/#{@user.id}/posts",
+                    class: "bg-white dark:bg-gray-800 text-black dark:text-white border border-black rounded cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 px-4 py-2 text-lg font-bold" do %>
+          See all Posts
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="text-center py-4">
-    <%= link_to "/users/#{@user.id}/posts",
-                class: "bg-white dark:bg-gray-800 text-black dark:text-white border border-black rounded cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 px-4 py-2 text-lg font-bold" do %>
-      See all Posts
-    <% end %>
-  </div>
-</div>
