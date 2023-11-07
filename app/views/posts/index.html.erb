@@ -4,17 +4,17 @@
       <img src="<%= @user.photo %>" alt="User Photo" class="object-cover">
     </div>
     <div class="info-container border-2 w-2/4 p-7 rounded-lg">
-      <a class="text-2xl font-bold text-blue-400 hover:text-blue-500" href="/users/<%=@user.id%>"><%= @user.name%></a>
+      <%= link_to @user.name, user_path(@user), class: "text-2xl font-bold text-blue-400 hover:text-blue-500" %>
       <p class="text-gray-600 text-right">Number of Posts: <%= @user.posts_counter%></p>
     </div>
   </div>
   <div>
-    <a href="/users/<%=@user.id%>/posts/new" class="btn btn-block bg-gray-900 border-gray-200 border-2 hover:bg-blue-900">Create Post</a>
+    <%= link_to "Create Post", new_user_post_path(@user), class: "btn btn-block bg-gray-900 border-gray-200 border-2 hover:bg-blue-900" %>
   </div>
   <div class="mt-8">
   <% @posts.order(created_at: :desc).each do |post|%>
-    <div class="border-2 p-4 mb-4 rounded-lg">
-      <a class="text-lg font-bold mb-2 text-blue-400 hover:text-blue-500" href="/users/<%= @user.id %>/posts/<%=post.id%>">Post #'<%=post.id%></a>
+    <div id="post-<%=post.id%>" class="border-2 p-4 mb-4 rounded-lg">
+      <%= link_to "Post ##{post.id}", user_post_path(@user, post), class: "text-lg font-bold mb-2 text-blue-400 hover:text-blue-500" %>
       <p class="text-gray-400 leading-relaxed">
         <%= post.text %>
       </p>
