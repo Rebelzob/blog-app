@@ -75,7 +75,8 @@ group :development do
   # gem "rack-mini-profiler"
 
   # Spring is a Rails application preloader.
-  # gem "spring"
+  gem 'letter_opener'
+  gem 'spring'
 end
 
 # Test group gems.
@@ -97,4 +98,4 @@ gem 'foreman', '~> 0.87.2'
 
 gem 'tailwindcss-rails', '~> 2.0'
 
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
