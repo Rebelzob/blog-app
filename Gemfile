@@ -95,7 +95,10 @@ gem 'faker', '~> 3.2', '>= 3.2.1'
 gem 'foreman', '~> 0.87.2'
 
 # Tailwind CSS is a utility-first CSS framework for rapidly building custom user interfaces.
-
 gem 'tailwindcss-rails', '~> 2.0'
 
+# Devise is a flexible authentication solution for Rails.
 gem 'devise', '~> 4.9'
+
+# Cancancan is an authorization library for Ruby.
+gem 'cancancan', '~> 3.1'
