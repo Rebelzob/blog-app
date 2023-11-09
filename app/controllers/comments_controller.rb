@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @user = current_user
+    @user = User.find(params[:user_id])
     @comment = @user.comments.build(comment_params)
 
     if @comment.save
