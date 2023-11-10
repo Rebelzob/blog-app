@@ -8,6 +8,14 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: { format: :json } do
+    resources :users, only: [:index] do
+      resources :posts, only: [:index] do
+        resources :comments, only: [:index, :create]
+      end
+    end
+  end
+  
   root to: redirect('/users/sign_in')
 
   get "up" => "rails/health#show", as: :rails_health_check
