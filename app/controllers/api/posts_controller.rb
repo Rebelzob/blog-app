@@ -7,4 +7,10 @@ class Api::PostsController < ApplicationController
     render json: @posts
   end
 
+  private
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
 end
