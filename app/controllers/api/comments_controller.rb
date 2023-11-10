@@ -23,4 +23,8 @@ class Api::CommentsController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
+
+  def set_post
+    @post = @user.posts.find(params[:post_id])
+  end
 end
