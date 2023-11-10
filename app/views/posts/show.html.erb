@@ -18,6 +18,13 @@
     <% @posts.comments.includes(:user).order(created_at: :desc).each do |comment| %>
     <li class="bg-gray-700 p-4 rounded-lg mb-4">
       <p class="text-gray-300">Username: <%= comment.user.name %>, <%= comment.text %></p>
+      <span>
+        <% if can? :destroy, comment %>
+          <%= form_with(url: user_post_comment_path(@user, @posts, comment), method: :delete, local: true) do |form| %>
+            <%= form.submit 'Delete Comment', class: 'btn btn-outline' %>
+          <% end %>
+        <% end %>
+      </span>
     </li>
     <% end %>
   </ul>

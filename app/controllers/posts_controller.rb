@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_user, only: %i[index show]
+  load_and_authorize_resource
 
   def index
     @posts = @user.posts.includes(:comments).where(author_id: @user.id)
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @user = user.find(params[:user_id])
+    @user = User.find(params[:user_id])
     @post = @user.posts.build(post_params)
 
     if @post.save
@@ -27,6 +28,16 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
+    @post.likes.destroy_all
+    @post.comments.destroy_all
+    @post.destroy
+
+    redirect_to user_post_path(@user, @post)
   end
 
   private

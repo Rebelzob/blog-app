@@ -2,7 +2,9 @@
   <div class="flex justify-between items-center py-8">
     <div class="container mx-auto px-4">
       <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-outline btn-error" %>
-      <%= link_to "Back to Users", users_path, class: "btn btn-outline btn-error" %>
+      <% if current_user.admin? %> 
+       <%= link_to "Back to Users", users_path, class: "btn btn-outline btn-error" %>
+      <% end %>
       <div class="flex justify-between items-center py-8">
         <div class="photo-container w-48 h-48 rounded-full overflow-hidden">
           <img src="<%= @user.photo %>" alt="User Photo" class="object-cover">
@@ -27,6 +29,11 @@
           <div id="post-<%=post.id%>" class="border-2 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105">
             <a class="text-lg font-bold mb-2 text-blue-400 hover:text-blue-500" href="/users/<%= @user.id %>/posts/<%=post.id%>"><%=post.title%></a>
             <p class="text-gray-700 dark:text-gray-300"><%= post.text %></p>
+            <% if can? :destroy, post %>
+              <%= form_with(url: user_post_path(@user, post), method: :delete, local: true) do |form| %>
+                <%= form.submit 'Delete', class: 'btn btn-outline' %>
+              <% end %>
+            <% end %>
           </div>
           <% end %>
         </div>

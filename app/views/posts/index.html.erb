@@ -18,6 +18,11 @@
       <p class="text-gray-400 leading-relaxed">
         <%= post.text %>
       </p>
+      <% if can? :destroy, post %>
+        <%= form_with(url: user_post_path(@user, post), method: :delete, local: true) do |form| %>
+          <%= form.submit 'Delete', class: 'btn btn-outline' %>
+        <% end %>
+      <% end %>
       <div class="flex justify-end mt-4">
         <span class="text-gray-400 mr-4">
           Comments: <%= post.comments_counter %>

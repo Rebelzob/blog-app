@@ -8,6 +8,14 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
 
+  def is?(requested_role)
+    role == requested_role.to_s
+  end
+
+  def admin?
+    is? :admin
+  end
+
   def three_last_posts
     posts.order(created_at: :desc).limit(3)
   end
