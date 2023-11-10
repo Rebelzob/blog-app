@@ -27,4 +27,8 @@ class Api::CommentsController < ApplicationController
   def set_post
     @post = @user.posts.find(params[:post_id])
   end
+
+  def comment_params
+    params.require(:comment).permit(:text)
+  end
 end
